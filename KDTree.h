@@ -10,10 +10,23 @@ typedef glm::vec3 Point;
 
 typedef std::vector<Point> PointList;
 
+
+struct Ray
+{
+    Ray(const glm::vec3 &orig, const glm::vec3 &dir);
+    glm::vec3 origin;
+    glm::vec3 direction;
+
+    glm::vec3 invdir;
+    int sign[3];
+};
+
 struct BoundingBox
 {
-    glm::vec3 origin;
-    glm::vec3 dimensions;
+    glm::vec3 bounds[2];
+
+    bool intersect(const Ray &r);
+
 };
 
 /**
