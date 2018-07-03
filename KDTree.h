@@ -18,6 +18,8 @@ public:
 
     static KDTree * build(PointList & pointList);
 
+    bool contains(const Point & p);
+
 	Point point;
 	const KDTree * left;
 	const KDTree * right;

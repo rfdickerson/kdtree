@@ -26,6 +26,11 @@ int main()
 
 	auto kdtree = KDTree::build(v);
 
+    Point p = {3.5, 7.6};
+    kdtree->contains(p);
+
 	std::cout << "Hello World!" << std::endl;
+    std::cout << kdtree->contains(p) << std::endl;
+    
 	return 0;
 }

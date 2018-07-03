@@ -50,5 +50,10 @@ KDTree * KDTree::build(PointList & pointList)
     return kd_tree(pointList.begin(), pointList.end(), 0, pointList.size());
 }
 
+bool KDTree::contains(const Point & p)
+{
+    return false;
+}
+
 
 
