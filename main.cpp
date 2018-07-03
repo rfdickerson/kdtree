@@ -20,13 +20,13 @@ int main()
 
 	for (int i = 0; i < 7; ++i)
 	{
-		auto a = { pointList[i][0], pointList[i][1] };
+        auto a = glm::vec3( pointList[i][0], pointList[i][1], 0 );
 		v.push_back(a);
 	}
 
 	auto kdtree = KDTree::build(v);
 
-    Point p = {3.5, 7.6};
+    Point p = glm::vec3(3.5, 7.6, 0);
     kdtree->contains(p);
 
 	std::cout << "Hello World!" << std::endl;

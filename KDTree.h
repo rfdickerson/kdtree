@@ -3,10 +3,18 @@
 #include <memory>
 #include <vector>
 
+#include <glm/glm.hpp>
+
 // n dimensional vector
-typedef std::vector<float> Point;
+typedef glm::vec3 Point;
 
 typedef std::vector<Point> PointList;
+
+struct BoundingBox
+{
+    glm::vec3 origin;
+    glm::vec3 dimensions;
+};
 
 /**
 KDTree
@@ -24,4 +32,6 @@ public:
 	Point point;
 	std::unique_ptr<KDTree> left;
 	std::unique_ptr<KDTree> right;
+
+    BoundingBox box;
 };

@@ -25,7 +25,7 @@ std::unique_ptr<KDTree> kd_tree(
 	const size_t numPoints)
 {
 
-	const auto axis = depth % 2;
+    const auto axis = depth % 3;
 
 	const Comparator comparator(axis);
 
