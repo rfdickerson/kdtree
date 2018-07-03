@@ -18,7 +18,7 @@ struct Comparator {
 	}
 };
 
-KDTree * kd_tree( 
+std::unique_ptr<KDTree> kd_tree( 
 	const PointList::iterator begin, 
 	const PointList::iterator end, 
 	const int depth, 
@@ -33,7 +33,7 @@ KDTree * kd_tree(
 
 	const auto c = numPoints / 2;
 
-	auto tree = new KDTree();
+	auto tree = std::make_unique<KDTree>();
 	tree->point = *(begin + c);
 
 	if (c > 0) {
@@ -45,7 +45,7 @@ KDTree * kd_tree(
 
 }
 
-KDTree * KDTree::build(PointList & pointList)
+std::unique_ptr<KDTree> KDTree::build(PointList & pointList)
 {
     return kd_tree(pointList.begin(), pointList.end(), 0, pointList.size());
 }

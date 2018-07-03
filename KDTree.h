@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include <vector>
 
 // n dimensional vector
@@ -16,11 +17,11 @@ class KDTree {
 
 public:
 
-    static KDTree * build(PointList & pointList);
+    static std::unique_ptr<KDTree> build(PointList & pointList);
 
     bool contains(const Point & p);
 
 	Point point;
-	const KDTree * left;
-	const KDTree * right;
+	std::unique_ptr<KDTree> left;
+	std::unique_ptr<KDTree> right;
 };
