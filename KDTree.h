@@ -46,5 +46,5 @@ public:
 	std::unique_ptr<KDTree> left;
 	std::unique_ptr<KDTree> right;
 
-    BoundingBox box;
+    BoundingBox boundingbox;
 };

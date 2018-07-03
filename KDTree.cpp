@@ -74,9 +74,13 @@ std::unique_ptr<KDTree> kd_tree(
 	auto tree = std::make_unique<KDTree>();
 	tree->point = *(begin + c);
 
-	if (c > 0) {
+    if (c > 0) {
 		tree->left = kd_tree( begin, begin + c - 1, depth + 1, c );
 		tree->right = kd_tree( begin + c + 1, end, depth + 1, c);
+
+        // compute bounding boxes here
+        tree->boundingbox.bounds[0] = tree->left->point;
+        tree->boundingbox.bounds[1] = tree->right->point;
 	}
 
 	return tree;
